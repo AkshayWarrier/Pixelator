@@ -1,8 +1,10 @@
 import cv2
 import numpy as np
-from numpy.core.fromnumeric import shape
 
-img = cv2.imread("images\\dog.jpg")  
+
+img = cv2.imread("images\\flower.jpg")
+
+ 
 pixelation = 12
 
 l = []
@@ -17,6 +19,7 @@ for i in range(0,img.shape[0],pixelation):
         gm = int(np.mean(g))
         bm = int(np.mean(b))
         img[i:i+pixelation,j:j+pixelation] = (rm,gm,bm)
+cv2.imwrite("images\\p.jpg",img)
 cv2.imshow('Pixelator',img)
 
 cv2.waitKey(0)
